@@ -260,4 +260,9 @@ public class BasicBoss extends Boss {
 	private int bottom() {
 		return (int) (_body.position().y() + _height / 2);
 	}
+
+	@Override
+	public Vector position() {
+		return _body.position();
+	}
 }

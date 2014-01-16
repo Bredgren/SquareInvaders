@@ -48,7 +48,6 @@ import Scalers.Scaler;
 // TODO Add bar indicaters for boss health, time until next boss, powerup times
 // TODO smoke, fire, explosion
 // TODO Awesome death ray powerup
-// TODO Bosses drop two powerups
 // TODO Store scores in file
 // TODO Effect when grabbing powerup
 
@@ -579,6 +578,10 @@ public class Game extends GamePanel {
 	}
 	
 	public void killBoss() {
+		Vector pos = _b.position();
+		Vector offset = new Vector(POWERUP_SIZE, 0);
+		drop(pos.minus(offset));
+		drop(pos.plus(offset));
 		_b = null;
 		_enemy_spawner.endBossMode();
 		score += 10000;
@@ -594,7 +597,7 @@ public class Game extends GamePanel {
 			drop(position);
 		}
 	}
-	
+		
 	public void newGive() {
 		if (Math.random() < GIVE_CHANCE) {
 			drop(new Vector(randomSpawnX(), SPAWN_Y));

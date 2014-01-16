@@ -7,6 +7,7 @@ import java.util.Set;
 import Collision.Collidable;
 import Entities.Entity;
 import Game.Game;
+import Geometry.Vector;
 import Movers.Mover;
 
 public abstract class Boss {
@@ -27,6 +28,7 @@ public abstract class Boss {
 	
 	public abstract void update(int time);
 	public abstract void draw(Graphics g, int time);
+	public abstract Vector position();
 	protected abstract void _kill();
 	
 	public void kill() {
